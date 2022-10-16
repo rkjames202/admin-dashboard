@@ -12,13 +12,13 @@
     --button-hover-color:rgb(115, 191, 226);
     --button-active-color: rgb(25, 163, 228);
     --button-font-color: white;
+
 }
 
 body{
     min-height: 100%;
     margin: 0;
-    /**May add new font**/
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
+    font-family: "Inter", "Roboto", sans-serif;
     display: grid;
     grid-template-columns: minmax(250px, 300px) 1fr;
     grid-template-rows: 200px 1fr;
@@ -34,7 +34,8 @@ body{
 }
 
 .sidebar-content{
-    position: fixed;
+    position: sticky;
+    top: 20px;
     margin-left: 15px;
 }
 
@@ -244,8 +245,8 @@ img[src*="bell"]:hover,
 .card-container{
     grid-row: 2;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,400px));
-    grid-template-rows: repeat(3, 250px);
+    grid-template-columns: repeat(2, minmax(300px,400px));
+    grid-template-rows: repeat(auto-fit, 250px);
     grid-auto-rows: 250px;
     gap: 30px;
     margin-right: 15px;
@@ -296,6 +297,7 @@ img[src*="bell"]:hover,
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     padding-right: 40px;
+    justify-content: center;
 }
 
 .trending{
@@ -338,6 +340,11 @@ img[src*="bell"]:hover,
     grid-template-rows: repeat(4, 1fr);
 }
 
+.trending-profile img{
+    width: 50px;
+    border-radius: 100%;
+}
+
 .trending-profile{
     display: grid;
     grid-template-columns: 75px 1fr;
@@ -346,6 +353,30 @@ img[src*="bell"]:hover,
 
 .trending-profile p{
     margin: 0;
+}
+
+.profile-info p:nth-child(1){
+    font-weight: bold;
+    width: fit-content;
+}
+
+.profile-info p:nth-child(1):hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.trending-profile img:hover{
+    cursor: pointer;
+}
+
+.profile-info p:nth-child(2){
+    font-size: .9rem;
+}
+
+.profile-info p:nth-child(2),
+.card p:nth-child(2),
+.announcements-card p:nth-child(even){
+    font-weight: 300;
 }
 
 
