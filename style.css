@@ -1,0 +1,286 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+:root{
+    height: 100%;
+    --sidebar-background-color: rgb(51, 180, 240);
+    --sidebar-font-color: white;
+    --main-background-color: rgb(224, 221, 221);
+    --card-background-color: white;
+    --button-background-color: rgb(51, 180, 240);
+    --button-hover-color:rgb(115, 191, 226);
+    --button-active-color: rgb(25, 163, 228);
+    --button-font-color: white;
+}
+
+body{
+    min-height: 100%;
+    margin: 0;
+    /**May add new font**/
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
+    display: grid;
+    grid-template-columns: minmax(250px, 300px) 1fr;
+    grid-template-rows: 200px 1fr;
+}
+
+/**Sidebar**/
+.sidebar{
+    grid-row: 1 / 3;
+    background-color: var(--sidebar-background-color);
+    color: white;
+    padding-left: 50px;
+    position: relative;
+}
+
+.sidebar-content{
+    position: fixed;
+    margin-left: 15px;
+}
+
+.sidebar p{
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.sidebar ul{
+    list-style: none;
+    padding-left: 10px;
+}
+
+.sidebar li{
+    display: table; /**So :hover will only apply when content is hovered**/
+    margin: 25px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.sidebar ul:nth-child(2){
+    margin-bottom: 70px;
+}
+
+.sidebar span{
+    position: relative;
+}
+
+.sidebar ul span img{
+    position: absolute;
+    top: -3px;
+    left: -35px;
+}
+
+.sidebar p span img{
+    width: 35px;
+    position: absolute;
+    left: -40px;
+    top: -2px;
+}
+
+
+.sidebar li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/**Header**/
+.header{
+    display: grid;
+    grid-template-rows: minmax(75px, 100px) 1fr;
+    padding: 20px 40px;
+    box-shadow: 0 8px 4px -4px rgb(182, 181, 181);
+    z-index: 10;
+}
+
+.top-header{
+    display: grid;
+    grid-template-columns: 1fr 400px;
+}
+
+.bottom-header{
+    display: grid;
+    grid-template-columns: 1fr 600px;
+}
+
+.post-buttons{
+    place-self: center;
+}
+
+.search-bar{
+    position: relative;
+    margin-left: 50px;
+}
+
+.search-bar input{
+    appearance: none;
+    outline: none;
+    background-color: rgb(219, 219, 219);
+    border: none;
+    height: 30px;
+    width: 90%;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 1rem;
+}
+
+.search-bar input:focus{
+    border: 2px solid skyblue;
+}
+
+.search-bar input:hover{
+    background-color: rgb(199, 197, 197);;
+}
+
+
+img[src*="magnify"]{
+    position: absolute;
+    left: -40px;
+    top: 2px;
+    border-radius: 15px;
+    padding: 3px;
+}
+
+img[src*="bell"]{
+    place-self: center;
+    width: 35px;
+    border-radius: 15px;
+    padding: 4px;
+}
+
+img[src*="magnify"]:hover, 
+img[src*="bell"]:hover, 
+.top-profile:hover{
+    cursor: pointer;
+    background-color: rgb(223, 222, 222);
+}
+
+
+.noti-profile{
+    align-self: start;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+}
+
+.top-profile{
+    margin-left: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;    
+    border-radius: 30px;
+    padding: 10px;
+}
+
+
+.top-profile  p{
+    font-weight: bold;
+}
+
+.profile-intro{
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    grid-template-rows: 100px;
+}
+
+
+.profile-intro img{
+   place-self: center;
+}
+
+.welcome-message{
+    font-weight: bold;
+    align-self: center;
+}
+
+.welcome-message p:nth-child(1){
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.welcome-message p:nth-child(2){
+    font-size: 1.4rem;
+    margin-top: 0;
+}
+
+.post-buttons button{
+    margin: 0 10px;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: .9rem;
+    height: 40px;
+    width: 100px;
+    border-radius: 30px;
+    color: var(--button-font-color);
+    background-color: var(--button-background-color);
+}
+
+.post-buttons button:hover{
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+}
+
+.post-buttons button:active{
+    background-color: var(--button-active-color);
+    box-shadow: inset 0px 0px 5px;
+}
+/**Main**/
+.main{
+    display: grid;
+    grid-template-columns: 3fr minmax(300px, 1fr);
+    background-color: var(--main-background-color);
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+[class*="title"]{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;;
+}
+
+/**Cards**/
+.card-container{
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 400px);
+    grid-template-rows: repeat(3, 250px);
+    grid-auto-rows: 250px;
+    gap: 30px;  
+}
+
+.card{
+    background-color: var(--card-background-color);
+    border-radius: 10px;
+    border-left: 7px solid orange;
+    padding-top: 25px;
+    padding-left: 20px;
+}
+
+.card p:nth-child(1){
+    font-weight: bold;
+}
+
+/**Additional info and trending**/
+.additional-info{
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    padding-right: 40px;
+}
+
+.trending{
+    margin-top: 15px;
+}
+
+.announcements-card, 
+.trending-card{
+    background-color: var(--card-background-color);
+    width: 300px;
+    height: 350px;
+    align-self: end;
+    padding: 10px;
+}
+
+
